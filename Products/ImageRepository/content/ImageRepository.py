@@ -5,8 +5,8 @@ from Products.Archetypes.public import registerType
 from Products.ImageRepository.interfaces import IImageRepository
 from Products.ImageRepository.config import PROJECTNAME
 
-from Products.ATContentTypes.atct import ATBTreeFolderSchema
-from Products.ATContentTypes.atct import ATCTBTreeFolder
+from Products.ATContentTypes.content.schemata import ATBTreeFolderSchema
+from Products.ATContentTypes.content.base import ATCTBTreeFolder
 from Products.ATContentTypes.interfaces import IATBTreeFolder
 
 from Products.CMFPlone.interfaces.Translatable import ITranslatable
@@ -35,6 +35,6 @@ class ImageRepository(ATCTBTreeFolder):
 
     security = ClassSecurityInfo()
 
-    __implements__ = updateInterfaces(ATCTBTreeFolder.__implements__, IATBTreeFolder)
+    __implements__ = updateInterfaces(ATCTBTreeFolder.__implemented__, IATBTreeFolder)
 
 registerType(ImageRepository, PROJECTNAME)
